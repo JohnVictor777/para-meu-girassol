@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor Eterno</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png"> 
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;700&display=swap"
+     rel="stylesheet">
+    
+    <link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style-meu-girassol.css">
+
+</head>
+<body>
+    <div class="particle" style="--rand-x: 0.1; --rand-x-end: 0.9; animation-delay: 0s;"></div>
+    <div class="particle" style="--rand-x: 0.3; --rand-x-end: 0.7; animation-delay: 2s; background-color: 
+    var(--primary-color);"></div>
+    <div class="particle" style="--rand-x: 0.5; --rand-x-end: 0.5; animation-delay: 4s;"></div>
+    <div class="particle" style="--rand-x: 0.7; --rand-x-end: 0.3; animation-delay: 6s; background-color: 
+    var(--secondary-color);"></div>
+    <div class="particle" style="--rand-x: 0.9; --rand-x-end: 0.1; animation-delay: 8s;"></div>
+    <div class="particle" style="--rand-x: 0.2; --rand-x-end: 0.8; animation-delay: 1s; background-color: 
+    var(--primary-color);"></div>
+    <div class="particle" style="--rand-x: 0.4; --rand-x-end: 0.6; animation-delay: 3s;"></div>
+    <div class="particle" style="--rand-x: 0.6; --rand-x-end: 0.4; animation-delay: 5s; background-color: 
+    var(--secondary-color);"></div>
+    <div class="particle" style="--rand-x: 0.8; --rand-x-end: 0.2; animation-delay: 7s;"></div>
+    <div class="particle" style="--rand-x: 0.05; --rand-x-end: 0.95; animation-delay: 9s; background-color: 
+    var(--primary-color);"></div>
+
+    <main class="container"> <h1 id="mainTitle">Para o Meu Girassol,</h1>
+        <h2>Minha história favorita começa e recomeça em você.</h2>
+
+        <p>Lembra daquela história que te contei sobre O Dia Que Passei a Amar Os Girassóis, ou O Dia em Que os Girassóis 
+            Floresceram - Vol. II? Pois é, Girassol, cada dia ao seu lado é como o capítulo mais lindo de um livro que eu 
+            nunca quero parar de ler.
+        </p>
+        <p>Sua luz ilumina cada canto do meu mundo, assim como o sol guia um girassol. Seu sorriso é a melodia mais suave 
+            que embala minha alma, e em seus braços, encontro o porto seguro onde todas as minhas aventuras querem ancorar.
+        </p>
+
+        <section class="photo-gallery" aria-label="Nossa galeria de momentos felizes"> <img src="assets/img-1.jpg" alt="Nosso
+             primeiro encontro, onde tudo começou, e eu me apaixonei por você.">
+            <img src="assets/img-4.jpg" alt="Uma foto que amo muito e que me lembra a sua beleza.">
+            <img src="assets/img-2.jpg" alt="Um abraço apertado que transborda carinho, sentindo a conexão profunda entre nós.">
+            <img src="assets/img-3.jpg" alt="Seu olhar que me encanta e me faz sorrir, refletindo a paixão e admiração que sinto.">
+            </section>
+
+        <section class="random-number-section" aria-label="Sortear um número para a história do dia">
+            <h3>Qual história vamos contar hoje?</h3>
+            <p>Deixe o destino escolher! Clique no botão e veja qual o número da nossa aventura de hoje, de 1 a 50.</p>
+            <button id="chooseNumberButton" aria-controls="numberDisplay">Sortear um Número!</button>
+            <p id="numberDisplay" aria-live="polite"></p> 
+
+            <button class="love-card-button" aria-label="Voltar para o início da história" 
+            style="background: linear-gradient(90deg, var(--accent-color), 
+            var(--background-gradient-start));">
+                <a href="card-love.html" style="text-decoration: none; color: #fff;">
+                    🌻 Love Notes for Girassol
+                </a>
+            </button>
+
+        </section>
+        <p>Amo a forma como você enxerga a vida, a sua força inabalável e a doçura infinita do seu coração. Sua paixão 
+            me inspira, e sua bondade me ensina a ser uma pessoa melhor a cada dia.</p>
+        <p>Nossa história é a minha favorita, um livro de amor que escrevemos juntos a cada novo amanhecer. Mal posso 
+            esperar para viver e escrevermos muitos mais capítulos, repletos de novas aventuras e descobertas.</p>
+        <p>Com você, a vida é mais colorida, mais completa. Cada obstáculo se torna uma oportunidade, e cada alegria é 
+            multiplicada. Obrigado por ser você existir, por ser o meu tudo, o meu maior presente. Meu coração é seu, hoje e sempre.</p>
+
+        <span class="heart" id="clickableHeart" role="button" aria-pressed="false" tabindex="0">💖</span> 
+        <p id="secretMessage"
+         class="sr-only">Você é a estrela que guia meu caminho!!
+        </p> 
+        <p>Com todo o meu amor e gratidão,<br>Seu Eterno contador
+             de histórias apaixonado.
+        </p>
+
+    </main>
+
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Visualizador de imagem">
+        <img class="modal-content" id="img01" alt="Imagem ampliada">
+        <div id="caption" class="caption"></div>
+
+    </div>
+    <div id="toastNotification" class="toast-notification" aria-live="polite" aria-atomic="true">
+        Mensagem secreta revelada!
+    </div>
+
+    
+    <script>
+        // DOMContentLoaded garante que o script só roda depois que todo o HTML está carregado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efeito de Parallax Simples (atualiza custom property --scroll-y)
+            window.addEventListener('scroll', () => {
+                document.body.style.setProperty('--scroll-y', window.scrollY);
+            });
+
+            // 1. Efeito de Máquina de Escrever no Título (h1)
+            const mainTitleElement = document.getElementById('mainTitle');
+            const originalTitleText = mainTitleElement.textContent;
+            mainTitleElement.textContent = ''; // Limpa o texto original para digitar
+
+            let charIndex = 0;
+            const typingSpeed = 100; // Milissegundos por caractere
+
+            function typeWriter() {
+                if (charIndex < originalTitleText.length) {
+                    mainTitleElement.textContent += originalTitleText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, typingSpeed);
+                } else {
+                    // Remove a animação do cursor após a digitação terminar
+                    mainTitleElement.style.borderRight = 'none';
+                    mainTitleElement.style.animation = 'none'; // Para parar a animação de digitação
+                }
+            }
+            typeWriter(); // Inicia o efeito de digitação
+
+            // 2. Interação do Coração (revelar mensagem secreta e toast)
+            const clickableHeart = document.getElementById('clickableHeart');
+            const secretMessage = document.getElementById('secretMessage');
+            const toastNotification = document.getElementById('toastNotification');
+
+            // Esconde a mensagem secreta por padrão ao carregar a página
+            secretMessage.style.display = 'none';
+
+            function showToast(message) {
+                toastNotification.textContent = message;
+                toastNotification.classList.add('show');
+                setTimeout(() => {
+                    toastNotification.classList.remove('show');
+                }, 3000); // Esconde o toast após 3 segundos
+            }
+
+            // Função para alternar a visibilidade da mensagem
+            function toggleSecretMessage() {
+                if (secretMessage.style.display === 'none') {
+                    secretMessage.style.display = 'block';
+                    clickableHeart.setAttribute('aria-pressed', 'true'); // Atualiza estado de acessibilidade
+                    showToast('Uma mensagem especial apareceu!'); // Mostra o toast
+                    // Opcional: esconder a mensagem após alguns segundos
+                    setTimeout(() => {
+                        secretMessage.style.display = 'none';
+                        clickableHeart.setAttribute('aria-pressed', 'false');
+                    }, 6000); // Esconde após 6 segundos (um pouco mais de tempo)
+                } else {
+                    secretMessage.style.display = 'none';
+                    clickableHeart.setAttribute('aria-pressed', 'false');
+                }
+            }
+
+            clickableHeart.addEventListener('click', toggleSecretMessage);
+            // Permite ativar com Enter ou Espaço para acessibilidade
+            clickableHeart.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault(); // Evita rolagem da página com Espaço
+                    toggleSecretMessage();
+                }
+            });
+
+
+            // 3. Interação da Galeria de Fotos (abrir modal)
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("img01");
+            const captionText = document.getElementById("caption");
+            const images = document.querySelectorAll(".photo-gallery img");
+
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    modalImg.classList.remove('closing'); // Remove a classe de fechamento se estiver lá
+                    modal.style.display = "flex"; // Usa flex para centralizar
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt; // Passa o alt text para a imagem do modal
+                    captionText.innerHTML = this.alt;
+                    document.body.style.overflow = 'hidden'; // Evita rolagem do body quando modal aberto
+                });
+                // Adiciona acessibilidade para teclado nas imagens
+                img.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        this.click(); // Simula um clique na imagem
+                    }
+                });
+            });
+
+            // Função para fechar o modal com animação
+            function closeModal() {
+                modalImg.classList.add('closing'); // Adiciona classe para animação de fechamento
+                modal.classList.add('closing'); // Adiciona classe para animação de fechamento do modal background
+                setTimeout(() => {
+                    modal.style.display = "none";
+                    modal.classList.remove('closing');
+                    modalImg.classList.remove('closing');
+                    document.body.style.overflow = 'auto'; // Restaura rolagem do body
+                }, 200); // Tempo da animação de fechamento
+            }
+
+            // Fechar o modal ao clicar fora da imagem (ou em qualquer lugar no modal)
+            modal.addEventListener('click', function(event) {
+                // Garante que o clique não foi na imagem em si, mas no fundo do modal ou na legenda
+                if (event.target === modal || event.target === captionText) {
+                    closeModal();
+                }
+            });
+
+            // Fechar modal com a tecla ESC
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+
+            // 4. Funcionalidade de Sortear Número
+            const chooseNumberButton = document.getElementById('chooseNumberButton');
+            const numberDisplay = document.getElementById('numberDisplay'); // Renomeado para exibir o número
+
+            function chooseRandomNumber() {
+                // Gera um número inteiro aleatório entre 1 e 50 (inclusive)
+                const randomNumber = Math.floor(Math.random() * 50) + 1;
+                
+                numberDisplay.classList.remove('show'); // Esconde para re-animar
+                setTimeout(() => {
+                    numberDisplay.textContent = `Número Sorteado: ${randomNumber}!`;
+                    numberDisplay.classList.add('show');
+                }, 300); // Pequeno atraso para a transição
+            }
+
+            chooseNumberButton.addEventListener('click', chooseRandomNumber);
+            // Permite ativar com Enter ou Espaço para acessibilidade
+            chooseNumberButton.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    chooseRandomNumber();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

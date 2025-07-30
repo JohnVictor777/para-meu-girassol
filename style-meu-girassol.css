@@ -1,0 +1,516 @@
+    /* Variáveis CSS para cores e fontes - Facilita a manutenção */
+        :root {
+            --primary-color: #0000cd; 
+            --secondary-color: #530b96; 
+            --accent-color: #FFD700; 
+            --light-pink: #333dcf; 
+            --dark-pink: #17075e; 
+            --text-color: #fff;
+            --background-gradient-start: #690035;
+            --background-gradient-end: #38026b;
+            --container-bg-color: rgba(0, 0, 0, 0.623); /* Mais opaco ainda */
+            --shadow-strong: 0 15px 45px rgba(0, 0, 0, 0.9);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.6);
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+            --font-dancing-script: 'Dancing Script', cursive;
+            --font-montserrat: 'Montserrat', sans-serif;
+        }
+
+        /* Estilos Gerais e Responsividade */
+        body {
+            font-family: var(--font-montserrat);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 15px;
+            background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
+            color: var(--text-color);
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.7; /* Melhorar legibilidade geral */
+            background-attachment: fixed; /* Efeito de paralaxe sutil no fundo */
+        }
+
+        /* Efeito de Parallax Simples */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
+            background-size: 100% 100%;
+            z-index: -1; /* Garante que fique atrás do conteúdo */
+            transform: translateY(calc(var(--scroll-y, 0) * 0.1px)); /* Ajuste o 0.1 para menos/mais paralaxe */
+            /* A variável --scroll-y será definida com JavaScript */
+        }
+
+        .container {
+            background-color: var(--container-bg-color);
+            padding: clamp(25px, 7vw, 45px) clamp(20px, 6vw, 35px);
+            border-radius: 30px;
+            box-shadow: var(--shadow-strong);
+            max-width: 95%;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInContainer 1.8s forwards ease-out; /* Nome diferente para evitar conflito */
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+        }
+
+        @keyframes fadeInContainer {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Títulos */
+        h1 {
+            font-family: var(--font-dancing-script);
+            color: var(--accent-color);
+            font-size: clamp(2.5em, 9vw, 4.5em);
+            margin-bottom: clamp(15px, 4vw, 25px);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Sombra mais intensa */
+            line-height: 1.1;
+            padding: 5px 0;
+            white-space: nowrap; /* Impede quebra de linha para o efeito de digitação */
+            overflow: hidden; /* Esconde o texto que ainda não foi "digitado" */
+            border-right: .15em solid var(--accent-color); /* Cursor piscante */
+            animation: typing 3s steps(30, end) forwards, blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color); }
+        }
+
+        h2 {
+            font-family: var(--font-montserrat);
+            font-weight: 500;
+            font-size: clamp(1.4em, 5vw, 2.2em);
+            color: var(--light-pink);
+            margin-top: 0;
+            margin-bottom: clamp(25px, 6vw, 40px);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombra mais suave */
+        }
+
+        /* Parágrafos */
+        p {
+            font-size: clamp(1.05em, 4.5vw, 1.4em);
+            line-height: 1.7;
+            margin-bottom: clamp(20px, 5vw, 30px);
+            font-weight: 400;
+            opacity: 0.95;
+            text-align: justify; /* Justifica o texto para melhor leitura em blocos */
+            text-justify: inter-word;
+            max-width: 95%; /* Limita a largura do parágrafo */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Seção de Fotos */
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: clamp(30px, 7vw, 50px);
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .photo-gallery img {
+            width: clamp(130px, 42vw, 200px);
+            height: clamp(130px, 42vw, 200px);
+            object-fit: cover;
+            border-radius: 20px;
+            border: 4px solid var(--accent-color);
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, filter 0.4s ease-in-out;
+            cursor: pointer;
+            filter: grayscale(0.1) brightness(0.9); /* Um toque de sépia e leve escurecimento */
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: var(--shadow-strong);
+            filter: grayscale(0) brightness(1.05); /* Remove sépia e aumenta brilho no hover */
+        }
+        
+        /* Seção de Sortear Número */
+        .random-number-section { /* Renomeado para refletir o sorteio de número */
+            background-color: rgba(var(--primary-color), 0.1); /* Fundo sutil */
+            padding: clamp(20px, 6vw, 40px);
+            border-radius: 20px;
+            margin-top: clamp(30px, 8vw, 60px);
+            margin-bottom: clamp(30px, 8vw, 60px);
+            width: 100%;
+            max-width: 95%;
+            box-shadow: var(--shadow-light);
+            border: 1px solid rgba(var(--primary-color), 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .random-number-section h3 {
+            font-family: var(--font-dancing-script);
+            color: var(--accent-color);
+            font-size: clamp(1.8em, 6vw, 3em);
+            margin-bottom: clamp(15px, 4vw, 25px);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .random-number-section button {
+            background: linear-gradient(90deg, var(--primary-color), var(--dark-pink));
+            color: var(--text-color);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: clamp(1em, 4vw, 1.2em);
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease-in-out;
+            margin-top: 20px;
+        }
+
+        .random-number-section button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(90deg, var(--dark-pink), var(--primary-color));
+        }
+
+        .random-number-section button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #numberDisplay { /* Renomeado para exibir o número */
+            margin-top: 30px;
+            font-family: var(--font-dancing-script);
+            color: var(--light-pink);
+            font-size: clamp(2.5em, 8vw, 4em); /* Tamanho maior para o número */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            min-height: 2.5em; /* Garante que o espaço seja reservado */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #numberDisplay.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Modal para visualização de imagem */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.98); /* Fundo quase opaco */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            animation: fadeInModal 0.3s forwards;
+            backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 95%;
+            max-height: 90vh;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.8); /* Sombra mais forte e brilhante */
+            animation: zoomIn 0.4s ease-out;
+            transition: transform 0.2s ease-out; /* Transição para o fechamento */
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0.3; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-content.closing { /* Classe para animação de fechamento */
+            animation: zoomOut 0.2s ease-in forwards;
+        }
+
+        @keyframes zoomOut {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(0.7); opacity: 0; }
+        }
+
+        .caption {
+            margin-top: 25px;
+            display: block;
+            width: clamp(80%, 70vw, 600px); /* Largura responsiva para a legenda */
+            text-align: center;
+            color: #eee;
+            padding: 15px 25px;
+            font-size: clamp(1.1em, 4vw, 1.4em); /* Tamanho responsivo */
+            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+        }
+
+        /* Coração animado */
+        .heart {
+            color: var(--dark-pink);
+            font-size: clamp(3.5em, 14vw, 6em);
+            animation: beat 1.5s infinite alternate;
+            display: inline-block;
+            margin-top: clamp(25px, 5vw, 40px);
+            cursor: pointer;
+            filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.6)); /* Sombra mais pronunciada */
+            transition: transform 0.2s ease-out, filter 0.2s ease-out;
+        }
+
+        .heart:active {
+            transform: scale(0.9);
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3)); /* Sombra menor ao clicar */
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* Mensagem Secreta */
+        #secretMessage {
+            display: none;
+            margin-top: 20px;
+            color: var(--accent-color);
+            font-family: var(--font-dancing-script);
+            font-size: clamp(1.8em, 7vw, 3em);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            animation: fadeInText 1s forwards ease-out;
+            padding: 15px 25px;
+            border: 3px solid var(--accent-color);
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.75); /* Fundo mais escuro */
+            max-width: 90%; /* Aumenta a largura máxima */
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--shadow-medium);
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(var(--accent-color), 0.95); /* Cor de destaque com transparência */
+            color: #333; /* Texto escuro para contraste */
+            padding: 12px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            font-family: var(--font-montserrat);
+            font-size: clamp(0.9em, 3.5vw, 1.1em);
+            font-weight: 600;
+            z-index: 1000; /* Acima de tudo */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-10px); /* Sobe um pouco */
+        }
+
+        /* Partículas de fundo */
+        .particle {
+            position: absolute;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 10s infinite ease-in-out forwards;
+            z-index: 1;
+            box-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(calc(var(--rand-x) * 100vw)); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(-20vh) translateX(calc(var(--rand-x-end) * 100vw)); opacity: 0; }
+        }
+
+        /* Media Queries para ajustes finos em diferentes tamanhos de tela */
+
+        /* Para celulares muito pequenos (até 360px) */
+        @media (max-width: 360px) {
+            .container {
+                padding: 15px 10px;
+            }
+            h1 {
+                font-size: clamp(1.8em, 8vw, 3em); /* Títulos menores */
+            }
+            h2 {
+                font-size: clamp(1em, 4.5vw, 1.6em);
+            }
+            p {
+                font-size: clamp(0.9em, 4vw, 1.1em);
+                text-align: left; /* Alinhamento esquerdo para textos mais curtos em telas super pequenas */
+            }
+            .photo-gallery {
+                gap: 8px;
+            }
+            .photo-gallery img {
+                width: clamp(90px, 45vw, 130px);
+                height: clamp(90px, 45vw, 130px);
+                border-radius: 8px;
+                border: 2px solid var(--accent-color);
+            }
+            .heart {
+                font-size: clamp(3em, 12vw, 4.5em);
+            }
+            #secretMessage {
+                font-size: clamp(1.3em, 6vw, 2em);
+                padding: 10px 15px;
+                border-radius: 10px;
+            }
+            .toast-notification {
+                font-size: 0.85em;
+                padding: 10px 20px;
+            }
+            .random-number-section h3 {
+                font-size: clamp(1.5em, 5vw, 2.5em);
+            }
+            .random-number-section button {
+                font-size: clamp(0.9em, 3.5vw, 1.1em);
+                padding: 12px 25px;
+            }
+            #numberDisplay {
+                font-size: clamp(2em, 7vw, 3.5em); /* Ajuste o tamanho do número sorteado */
+            }
+        }
+
+        /* Para celulares padrão (361px a 767px) */
+        @media (min-width: 361px) and (max-width: 767px) {
+            .container {
+                padding: 25px 15px;
+            }
+            h1 {
+                font-size: clamp(2.2em, 9vw, 4em);
+            }
+            h2 {
+                font-size: clamp(1.2em, 5vw, 2em);
+            }
+            p {
+                text-align: justify; /* Volta para justificado */
+            }
+            .photo-gallery img {
+                width: clamp(120px, 40vw, 180px);
+                height: clamp(120px, 40vw, 180px);
+            }
+            .heart {
+                font-size: clamp(3.5em, 14vw, 5.5em);
+            }
+            #secretMessage {
+                font-size: clamp(1.6em, 7vw, 2.5em);
+            }
+            .random-number-section h3 {
+                font-size: clamp(1.8em, 6vw, 2.8em);
+            }
+        }
+
+        /* Para Tablets e Desktops (768px a 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .container {
+                max-width: 700px;
+                padding: 40px 50px;
+            }
+            h1 {
+                font-size: 4.5em;
+            }
+            h2 {
+                font-size: 2.2em;
+            }
+            p {
+                font-size: 1.3em;
+            }
+            .photo-gallery img {
+                width: 180px;
+                height: 180px;
+            }
+            .heart {
+                font-size: 6em;
+            }
+            #secretMessage {
+                font-size: 2.8em;
+            }
+        }
+
+        /* Para Telas Grandes (acima de 1024px) */
+        @media (min-width: 1025px) {
+            .container {
+                max-width: 800px; /* Largura máxima para evitar que o conteúdo fique muito esticado */
+                padding: 60px 70px;
+            }
+            h1 {
+                font-size: 5.5em; /* Título maior para telas grandes */
+            }
+            h2 {
+                font-size: 2.8em;
+            }
+            p {
+                font-size: 1.55em;
+                max-width: 80%; /* Garante que os parágrafos não fiquem muito largos */
+            }
+            .photo-gallery {
+                gap: 25px;
+            }
+            .photo-gallery img {
+                width: 220px;
+                height: 220px;
+            }
+            .heart {
+                font-size: 7.5em;
+            }
+            #secretMessage {
+                font-size: 3.5em;
+            }
+        }
