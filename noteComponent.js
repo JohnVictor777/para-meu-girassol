@@ -31,17 +31,17 @@ function createNoteComponent(textContent, secondaryTextContent = null) {
 // Array com os textos das suas notas
 const notesData = [
   {
-    main: "Meu mundo gira em torno da sua existência. Seus olhos são meu norte, sua voz é minha canção favorita e seu amor é o alicerce que sustenta tudo o que sou. Você é, e sempre será, o meu universo particular.",
+    main: "Feliz Dia da Namorada, meu amor! Ter você ao meu lado é o melhor presente que a vida me deu. Seu olhar me inspira, sua voz me acalma e seu amor me transforma todos os dias.",
     secondary: null,
   },
   {
-    main: "Não há palavras que captem a dimensão do que você representa para mim. Você é a resposta para perguntas que eu nem sabia que tinha, o brilho que afasta qualquer escuridão e a pessoa que me faz acreditar em um futuro sem fim ao seu lado.",
+    main: "Hoje é o seu dia, e eu só consigo agradecer por cada momento ao seu lado. Você é o amor que eu sempre sonhei, a parceira que me completa e a razão do meu sorriso mais sincero.",
     secondary: null,
   },
   {
-    main: "Se me perguntassem o que é o amor, eu diria seu nome. Se me pedissem para descrever a felicidade, eu falaria sobre cada momento ao seu lado. ",
+    main: "Feliz Dia da Namorada para a mulher mais incrível que eu conheço. Estar com você é viver o amor de verdade, é encontrar paz no caos, é ter certeza de que o futuro será lindo porque é com você.",
     secondary:
-      "Você é a definição de tudo o que eu busco e a única razão para eu querer ser melhor a cada dia!",
+      "Você é meu presente, meu futuro e tudo o que eu preciso para ser feliz. Te amo cada dia mais!",
   },
 ];
 
