@@ -31,20 +31,18 @@ function createNoteComponent(textContent, secondaryTextContent = null) {
 // Array com os textos das suas notas
 const notesData = [
   {
-    main: "Feliz Dia da Namorada, meu amor! Ter você ao meu lado é o melhor presente que a vida me deu. Seu olhar me inspira, sua voz me acalma e seu amor me transforma todos os dias.",
+    main: "Feliz 3 meses, meu amor! Parece que foi ontem que tudo começou, e cada dia ao seu lado é uma nova descoberta. Você me faz sorrir, me acalma e torna minha vida muito mais feliz.",
     secondary: null,
   },
   {
-    main: "Hoje é o seu dia, e eu só consigo agradecer por cada momento ao seu lado. Você é o amor que eu sempre sonhei, a parceira que me completa e a razão do meu sorriso mais sincero.",
+    main: "Hoje celebramos 3 meses de uma história que eu quero que dure a vida inteira. Você é a pessoa que eu sempre sonhei em encontrar e a razão do meu sorriso mais sincero.",
     secondary: null,
   },
   {
-    main: "Feliz Dia da Namorada para a mulher mais incrível que eu conheço. Estar com você é viver o amor de verdade, é encontrar paz no caos, é ter certeza de que o futuro será lindo porque é com você.",
-    secondary:
-      "Você é meu presente, meu futuro e tudo o que eu preciso para ser feliz. Te amo cada dia mais!",
+    main: "A cada dia que passa, tenho mais certeza de que você é a mulher da minha vida. Feliz 3 meses para a pessoa mais incrível que eu já conheci. Estar com você é viver o amor de verdade.",
+    secondary: "Você é meu presente e tudo o que eu preciso para ser feliz. Te amo cada dia mais!",
   },
 ];
-
 // Onde as notas serão inseridas no HTML
 document.addEventListener("DOMContentLoaded", () => {
   const loveNotesContainer = document.getElementById("bilhete");
