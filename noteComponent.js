@@ -40,7 +40,7 @@ const notesData = [
   },
   {
     main: "Você é a melodia que faltava na minha vida, a poesia que me inspira e a mulher que eu sempre sonhei em ter ao meu lado. Não importa o tempo, o meu amor por você é eterno e incondicional.",
-    secondary: "Prometo cuidar do seu coração e fazê-la feliz em todos os dias que tivermos juntos. Te amo mais do que palavras podem expressar.",
+    secondary: "Prometo cuidar do seu coração e fazê-la feliz em todos os dias que tivermos juntos. Te amo mais do que palavras podem expressar. ❤❤❤🌻",
   },
 ];
 
