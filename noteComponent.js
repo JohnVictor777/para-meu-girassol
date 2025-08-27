@@ -31,16 +31,16 @@ function createNoteComponent(textContent, secondaryTextContent = null) {
 // Array com os textos das suas notas
 const notesData = [
   {
-    main: "A sua força me inspira, sua bondade me acalma e sua presença ilumina a minha vida. Você é a minha maior aventura e o lugar onde eu sempre quero estar. Com você, cada momento se torna uma memória preciosa.",
+    main: "Cada detalhe em você me encanta, do seu sorriso ao jeito como olha para o mundo. Estar ao seu lado me faz acreditar que o amor é a coisa mais verdadeira que existe.",
     secondary: null,
   },
   {
-    main: "Não há distância ou tempo que possa diminuir o que sinto por você. Meus pensamentos estão sempre em você, e o meu desejo é que o nosso amor continue a florescer, forte e resiliente, para sempre.",
+    main: "Com você, até os dias mais simples ganham cor e significado. Seu abraço é o meu refúgio, e seu amor é a minha força para seguir em frente.",
     secondary: null,
   },
   {
-    main: "Você não é só a pessoa que eu amo, você é a minha parceira, a minha melhor amiga e a razão pela qual eu acredito no amor. Com você, eu me sinto livre para ser quem eu sou, sem medo.",
-    secondary: "Obrigado por ser a melhor parte do meu dia, todos os dias. Você é o meu maior presente. ✨💞",
+    main: "Você é o meu equilíbrio, minha paz e também o meu maior sonho. Amar você é o capítulo mais bonito da minha vida, e eu não quero que ele termine nunca.",
+    secondary: "Eu te escolho hoje, amanhã e sempre. Obrigado por existir e me fazer tão feliz. ❤️🌹",
   },
 ];
 
