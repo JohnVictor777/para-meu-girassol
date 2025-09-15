@@ -30,18 +30,20 @@ function createNoteComponent(textContent, secondaryTextContent = null) {
 
 // Array com os textos das suas notas
 const notesData = [
-{
-main: "Sinto que a nossa história está apenas começando, mas cada dia com você já é um capítulo inesquecível. Seu amor me dá força e me mostra que a felicidade mora nas coisas mais simples, como no seu abraço ou no som da sua risada.",
-secondary: null,
-},
-{
-main: "Meu amor por você é a única certeza que eu tenho. Ele me guia, me acalma e me faz querer ser melhor a cada manhã. Não existe lugar no mundo que eu prefira estar do que ao seu lado.",
-secondary: null,
-},
-{
-main: "Você chegou e bagunçou tudo, mas de uma forma que colocou cada pedacinho da minha vida no lugar. Meu coração te escolheu e hoje, mais do que nunca, eu sei que não poderia ter feito escolha melhor. ❤️❤️",
-},
+  {
+    main: "Dizem que a vida não vem com manual, mas eu acho que veio com você. E olha... até agora, só bugou meu coração de tanto amor! 💖😂",
+    secondary: null,
+  },
+  {
+    main: "Você é tipo Wi-Fi: quando está perto tudo faz sentido, quando some eu já fico desesperado tentando reconectar. 📶❤️",
+    secondary: null,
+  },
+  {
+    main: "Eu achava que felicidade era pizza na sexta-feira… até perceber que é você rindo das minhas piadas ruins. 🍕😂",
+    secondary: null,
+  },
 ];
+
 
 // Onde as notas serão inseridas no HTML
 document.addEventListener("DOMContentLoaded", () => {
